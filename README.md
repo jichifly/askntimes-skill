@@ -3,6 +3,9 @@
 Ask N Times helps you see how much an AI answer changes when the same
 underdetermined question is asked multiple times.
 
+It is a Codex skill for stress-testing uncertain predictions and other
+underdetermined AI answers with reproducible multi-agent sampling.
+
 It runs one shared prompt through `N` independent subagents, saves every raw
 result, and generates a separate synthesis report so you can inspect consensus,
 disagreement, outliers, assumptions, and the full trail behind the final answer.
@@ -33,6 +36,46 @@ run the prompt multiple times, and then synthesize those raw outputs into a
 report like `report.md`. The exact wording and probabilities will vary, but the
 outputs should be comparable enough to inspect whether the same clusters,
 assumptions, and dissenting views recur.
+
+## Why this approach
+
+Ask N Times is built around a reproducible workflow, not a promise that any
+single prediction outcome will be reproducible.
+
+- Repeated sampling shows how much an answer drifts across plausible runs.
+- Independent subagents reduce contamination from the supervisor's main-thread
+  context, hidden reasoning, and report-only instructions.
+- The run bundle creates an auditable trail from shared context and shared
+  prompt to raw worker outputs and the final synthesis report.
+
+The workflow is map/reduce-shaped: first collect shared context, then sample
+independent worker answers, then ask one reporting subagent to reduce those raw
+answers into a synthesis.
+
+```mermaid
+flowchart TD
+    A["User task"] --> B["Supervisor pre-research<br/>(if needed)"]
+    B --> C["context.md"]
+    A --> D["prompt.md"]
+    C --> D
+
+    D --> E1["Worker subagent 01"]
+    D --> E2["Worker subagent 02"]
+    D --> E3["Worker subagent N"]
+
+    E1 --> R1["results/01.md"]
+    E2 --> R2["results/02.md"]
+    E3 --> R3["results/NN.md"]
+
+    R1 --> M["manifest.jsonl"]
+    R2 --> M
+    R3 --> M
+
+    M --> P["report_prompt.md"]
+    C --> P
+    P --> S["Report subagent"]
+    S --> F["report.md"]
+```
 
 ## Install
 
