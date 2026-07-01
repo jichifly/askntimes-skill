@@ -1,0 +1,21 @@
+# OS and editor files
+.DS_Store
+*/.DS_Store
+
+# Local agent/runtime state
+.claude/
+.codex/
+.agents/
+
+# Ask N Times generated run bundles
+.askntimes/
+
+# Local drafts and archives
+draft/
+archive/
+
+# Caches and generated artifacts
+__pycache__/
+*.pyc
+*.log
+*.jsonl

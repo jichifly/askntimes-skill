@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ask N Times"
+  short_description: "Sample a task across N independent agents"
+  default_prompt: "Use $askntimes to run the same task through multiple independent agents and synthesize the results."

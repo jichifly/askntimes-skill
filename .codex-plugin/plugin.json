@@ -1,0 +1,42 @@
+{
+  "name": "askntimes",
+  "version": "0.1.0",
+  "description": "Sample judgment on open-ended problems by running the same task through N independent subagents and synthesizing the results.",
+  "author": {
+    "name": "Jichi Guo",
+    "url": "https://github.com/jichilfy"
+  },
+  "homepage": "https://github.com/jichilfy/askntimes-skill",
+  "repository": "https://github.com/jichilfy/askntimes-skill",
+  "license": "MIT",
+  "keywords": [
+    "agents",
+    "subagents",
+    "judgment-sampling",
+    "forecasting",
+    "estimation",
+    "decision-making",
+    "review",
+    "ai-skill"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Ask N Times",
+    "shortDescription": "Sample judgment across N independent agents.",
+    "longDescription": "Ask N Times adds a reproducible protocol for open-ended judgment tasks: one shared prompt, isolated context, raw result capture, a manifest, and a separate synthesis report.",
+    "developerName": "jichilfy",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/jichilfy/askntimes-skill",
+    "defaultPrompt": [
+      "/askntimes estimate the risks in this launch plan",
+      "/askntimes --n 5 predict the most likely outcome and explain uncertainty",
+      "/askntimes --n 3 compare these two strategy options"
+    ],
+    "brandColor": "#2563EB"
+  }
+}

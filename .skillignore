@@ -1,0 +1,27 @@
+# Keep install bundles focused on the runtime skill.
+
+# VCS, local runtime state, and generated runs
+.git/
+.askntimes/
+.claude/
+.codex/
+.agents/
+
+# Local drafts and archives
+draft/
+archive/
+
+# OS, cache, and generated files
+.DS_Store
+*/.DS_Store
+__pycache__/
+*.pyc
+*.log
+*.jsonl
+
+# Repo-only metadata
+README.md
+LICENSE
+.gitignore
+.skillignore
+.codex-plugin/
