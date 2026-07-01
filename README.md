@@ -34,12 +34,24 @@ report like `report.md`. The exact wording and probabilities will vary, but the
 outputs should be comparable enough to inspect whether the same clusters,
 assumptions, and dissenting views recur.
 
+## Install
+
+Clone the repo and copy the skill into your Codex skills directory:
+
+```bash
+git clone https://github.com/jichilfy/askntimes-skill.git
+mkdir -p ~/.codex/skills
+cp -R askntimes-skill/skills/askntimes ~/.codex/skills/askntimes
+```
+
+Restart Codex so it can pick up the new skill.
+
 ## Usage
 
 Run the skill with an explicit slash command:
 
 ```text
-/askntimes estimate when humans will return to the moon again
+/askntimes When will humans reach the Moon again?
 ```
 
 Set the number of independent runs:
